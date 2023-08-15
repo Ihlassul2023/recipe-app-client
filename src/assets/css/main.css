@@ -1,0 +1,461 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+:root {
+  --mainComponent: rgba(239, 200, 26, 1);
+  --input: rgba(134, 146, 166, 1);
+  --inputSection: rgba(239, 239, 239, 1);
+  --navAndFirstSection: rgba(46, 38, 111, 1);
+  --fontText: rgba(63, 58, 58, 1);
+  --buttonSearchMenu: rgba(0, 224, 146, 1);
+  --buttonComment: rgba(255, 177, 103, 1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  color: var(--input);
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+}
+nav,
+footer {
+  flex: 1;
+}
+main {
+  flex: 2;
+}
+/* page home */
+nav .bar_yellow {
+  right: 0;
+  top: 0;
+  width: 23%;
+  height: 600px;
+}
+nav .navigation {
+  padding: 2rem;
+  padding-left: 5rem;
+}
+nav .navigation a {
+  color: var(--navAndFirstSection);
+}
+nav .navigation a:hover {
+  text-decoration: underline;
+}
+section .img {
+  z-index: 2;
+}
+section .menuSearch h1 {
+  color: var(--navAndFirstSection);
+  font-weight: 500;
+}
+section .menuSearch input {
+  padding: 1rem;
+  padding-left: 2.5rem;
+  background-image: url("../images/search.png");
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-color: var(--inputSection);
+  border-radius: 5px;
+  width: 100%;
+  border: 0;
+}
+section .titleSection {
+  height: 90px;
+  gap: 0.5rem;
+  margin-bottom: 5rem;
+}
+section .titleSection .bar {
+  width: 18px;
+}
+section h2,
+p {
+  color: var(--fontText);
+}
+section .frame {
+  border: 2px solid var(--mainComponent);
+  border-radius: 5px;
+  top: 5%;
+  left: 28%;
+  z-index: -1;
+}
+section button {
+  width: max-content;
+  background-color: var(--mainComponent);
+  color: #fff;
+  padding: 1rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section .barSection {
+  background-color: var(--mainComponent);
+  z-index: -1;
+  top: -10%;
+  left: -20%;
+}
+section .captImg {
+  top: 80%;
+  left: 10%;
+  width: 41%;
+  color: var(--fontText);
+  font-weight: bolder;
+}
+.footer {
+  margin-top: 5rem;
+  background-color: var(--mainComponent);
+  height: 500px;
+}
+.footer h1 {
+  color: var(--navAndFirstSection);
+}
+.footer p {
+  color: var(--navAndFirstSection);
+}
+.footer .nav-footer .nav a {
+  text-decoration: none;
+  color: var(--navAndFirstSection);
+}
+.footer .nav-footer .nav {
+  padding: 4rem;
+}
+.footer .nav-footer .arkademy {
+  right: 10%;
+  top: 40%;
+  color: var(--fontText);
+}
+/* page search-menu */
+main .distanceNav {
+  padding-top: 10rem;
+}
+nav .navWraper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+}
+nav .navigationSearch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  padding-left: 5rem;
+}
+nav .navigationSearch a {
+  text-decoration: none;
+  color: var(--navAndFirstSection);
+}
+nav .navigationSearch a:hover {
+  text-decoration: underline;
+}
+nav .profileNameLogout span a,
+section .profileNameLogout span a {
+  color: var(--input);
+}
+nav .profile .line,
+section .profile .line {
+  width: 3px;
+  height: 70px;
+  background-color: var(--mainComponent);
+}
+section .sectionSearchMenu1 h1 {
+  color: var(--navAndFirstSection);
+}
+
+section .sectionSearchMenu1 .inputSearch input {
+  padding: 1rem;
+  padding-left: 1.5rem;
+  background-color: var(--inputSection);
+  border-radius: 5px;
+  width: 75%;
+  border: 0;
+}
+section .sectionSearchMenu1 .inputSearch button {
+  width: 23%;
+  background-color: var(--mainComponent);
+  color: #fff;
+  padding: 1rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section .sectionSearchMenu1 .category button:nth-child(1),
+.category button:nth-child(2) {
+  width: 23%;
+  background-color: var(--mainComponent);
+  color: #fff;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section .sectionSearchMenu1 .category button:nth-child(3),
+.category button:nth-child(4) {
+  width: 23%;
+  background-color: var(--buttonSearchMenu);
+  color: #fff;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section .buttonSection2 {
+  background-color: var(--mainComponent);
+  color: #fff;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+section .buttonSection2 a {
+  text-decoration: none;
+  color: #fff;
+}
+section .listRecipe {
+  margin-bottom: 3rem !important;
+}
+/* page detail recipe */
+section .lineUp {
+  width: 100%;
+  height: 2px;
+  background-color: var(--mainComponent);
+}
+section .inputComment {
+  border: 0;
+  border-radius: 5px;
+  padding: 2rem;
+  height: 150px;
+  background-color: var(--inputSection);
+}
+section .btnComment {
+  background-color: var(--buttonComment);
+  color: #fff;
+  padding: 1rem;
+  border: 0;
+  border-radius: 5px;
+  width: 75%;
+  cursor: pointer;
+}
+/* page add Menu */
+section .sectionAddRecipePhoto,
+.sectionAddRecipeIngredients {
+  border: 0;
+  border-radius: 5px;
+  padding: 1rem;
+  height: 250px;
+  background-color: var(--inputSection);
+}
+section .sectionAddRecipeTitle,
+.sectionAddRecipeCategory {
+  border: 0;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: var(--inputSection);
+}
+/* page detail profile */
+section .toDetailProfile h3 a {
+  color: var(--input);
+}
+section .lineDetailProfile {
+  background-color: var(--mainComponent);
+  height: 10px;
+}
+section .listRecipe .listRecipeExp .btnDetailProfile button:nth-child(1) {
+  background-color: rgba(48, 192, 243, 1);
+  color: #fff;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 35%;
+}
+section .listRecipe .listRecipeExp .btnDetailProfile button:nth-child(2) {
+  background-color: rgba(245, 126, 113, 1);
+  color: #fff;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 35%;
+}
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-image {
+  width: 200px;
+  height: 200px;
+  animation: rotateAnimation 2s linear infinite, fadeInOut 2s infinite;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+.mainMenu {
+  min-height: 300px;
+}
+
+@media (max-width: 768px) {
+  nav .navigation {
+    padding-left: 2rem;
+    justify-content: left;
+    width: 100%;
+    gap: 1rem;
+  }
+  nav .navigation a {
+    font-size: 16px;
+    color: #fff;
+    z-index: 2;
+  }
+  nav .navWraper {
+    display: flex !important;
+    justify-content: space-between;
+  }
+  nav .navWraper .navPict {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    width: 100px;
+  }
+  nav .navWraper .menuBurger {
+    display: flex;
+  }
+  nav .navWraper .menuBurger label {
+    float: right;
+    margin-right: 10px;
+  }
+  nav .navWraper .navigationSearch {
+    position: absolute;
+    justify-content: start;
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 300px;
+    background-color: var(--mainComponent);
+    right: -100%;
+    transition: 1s;
+    top: 0;
+    z-index: 9999;
+  }
+  nav .navWraper .navigationSearch a {
+    color: #fff;
+  }
+  nav .navWraper .navigationSearch .close {
+    display: block !important;
+    margin-top: 1rem;
+  }
+  nav .navWraper .menuBurger {
+    display: block !important;
+  }
+  nav:has(.menuBurger input[type="checkbox"]:checked) .navWraper .navigationSearch {
+    right: 0;
+  }
+  nav .bar_yellow {
+    height: 250px !important;
+    width: 100% !important;
+  }
+  section .menuSearch h1 {
+    text-align: center;
+  }
+
+  .titleSection {
+    width: 90%;
+    padding-left: 1rem;
+    margin-bottom: 3rem !important;
+  }
+  .section1 {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+  section .captImg {
+    width: 40%;
+    top: 75%;
+  }
+  section .frame {
+    top: 4%;
+    left: 25%;
+  }
+  .footer .nav-footer .arkademy {
+    left: 33%;
+    top: 85%;
+  }
+  /* page search-menu */
+  nav .navWraper .navigationSearch {
+    width: 60%;
+    padding-left: 0.1rem;
+    padding: 0.1rem;
+  }
+  nav .navWraper .navPict .profile {
+    gap: 0.5rem !important;
+  }
+  nav .navWraper .navPict {
+    width: 40%;
+  }
+  section .sectionSearchMenu1 h1 {
+    width: 100% !important;
+  }
+  section .sectionSearchMenu1 {
+    width: 100%;
+  }
+  section .listRecipe .listRecipeImage,
+  .listRecipeExp {
+    width: 100%;
+  }
+  /* page detail recipe */
+  section .sectionDetailRecipe1 {
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+  section .sectionDetailRecipe1 .pictSectionDetail1 {
+    width: 100%;
+    justify-content: left !important;
+  }
+  section .sectionDetailRecipe1 .historySectionDetail1 {
+    width: 100%;
+  }
+  section .pictSectionDetail2 {
+    width: 100%;
+    height: 100%;
+  }
+  section .imgDetailRecipe3 {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  section .sectionDetailRecipe3 {
+    width: 100%;
+  }
+  section .sectioDetailRecipe4 {
+    width: 100% !important;
+  }
+  /* page detail profil */
+  section .addRecipe .col-8,
+  .editProfil,
+  .editProfil form {
+    width: 90%;
+  }
+}

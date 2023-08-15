@@ -1,0 +1,92 @@
+:root {
+  --mainComponent: rgba(239, 200, 26, 1);
+  --input: rgba(134, 146, 166, 1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  color: var(--input);
+}
+.containerAuth {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal1,
+#modal2 {
+  top: 25%;
+}
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 30%;
+}
+.containerForm h1 {
+  color: var(--mainComponent);
+}
+.containerForm p {
+  text-align: center;
+}
+.containerForm .mainForm {
+  width: 100%;
+}
+.containerForm .mainForm .expForm {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerForm .mainForm form .input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.containerForm .mainForm form .input input {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border: 0.5px solid var(--input);
+  border-radius: 5px;
+}
+form:has(.check input[type="checkbox"]:checked) .check input {
+  accent-color: var(--mainComponent);
+}
+.containerForm .mainForm form .input input:focus {
+  border: 0.5px solid var(--mainComponent);
+  border-radius: 5px;
+  box-shadow: -3px 7px 22px 0px rgba(0, 0, 0, 0.28);
+  -webkit-box-shadow: -3px 7px 22px 0px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: -3px 7px 22px 0px rgba(0, 0, 0, 0.28);
+}
+.containerForm .mainForm form .check input {
+  background-color: var(--mainComponent);
+}
+.containerForm .mainForm form button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--mainComponent);
+  border: 0;
+  cursor: pointer;
+}
+.containerForm .mainForm form button a {
+  text-decoration: none;
+  color: #fff;
+}
+.containerForm .alreadyRegister span {
+  color: var(--mainComponent);
+}
+.containerForm .alreadyRegister a {
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .containerForm {
+    width: 70% !important;
+    gap: 5rem !important;
+  }
+}
