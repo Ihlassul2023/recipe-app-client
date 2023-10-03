@@ -52,7 +52,7 @@ npm install
 
 | Detail Recipe Page                                                     | Profile Page                                                   |
 | ---------------------------------------------------------------------- | -------------------------------------------------------------- |
-| ![Detail Recipe](/public/detailMneu.png?raw=true "Detail Recipe Page") | ![Profile Page](/public/myProfile.png?raw=true "Profile Page") |
+| ![Detail Recipe](/public/detailMenu.png?raw=true "Detail Recipe Page") | ![Profile Page](/public/myProfile.png?raw=true "Profile Page") |
 
 | Edit Profile Page                                                     |
 | --------------------------------------------------------------------- |
