@@ -29,7 +29,7 @@ git clone https://github.com/Ihlassul2023/recipe-app-client
 - Go To Folder Repo
 
 ```
-cd FE-Food-Recipes
+cd recipe-app-client
 ```
 
 - Install Module
@@ -38,7 +38,7 @@ cd FE-Food-Recipes
 npm install
 ```
 
-- Type ` npm start` To Start Website
+- Type ` npm run dev` To Start Website
 
 ## Screenshot
 
@@ -75,4 +75,4 @@ Contributions are what make the open source community such an amazing place to b
 ## Link
 
 - [Backend](https://github.com/Ihlassul2023/restApi-recipe-app)
-- [Visit Project](https://recipe-app-client-phi.vercel.app/)
+- [Visit Project](https://recipe-app-client-omega.vercel.app/)
