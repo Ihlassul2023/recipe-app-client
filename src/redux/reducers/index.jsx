@@ -8,6 +8,12 @@ import detail_menuReducer from "./menu/detail_menu";
 import put_menuReducer from "./menu/put_menu";
 import myMenu_Reducer from "./menu/myMenu_reducer";
 import updateUser from "./auth/updateProfile";
+import getLikeReducer from "./likeSave/getLikeReducer";
+import getSaveReducer from "./likeSave/getSaveReducer";
+import postLikeReducer from "./likeSave/postLikeReducer";
+import postSaveReducer from "./likeSave/postSaveReducer";
+import postCommentReducer from "./comment/postCommentReducer";
+import getCommentReducer from "./comment/getCommentReducer";
 const rootReducers = combineReducers({
   register,
   login,
@@ -18,6 +24,12 @@ const rootReducers = combineReducers({
   detail_menuReducer,
   myMenu_Reducer,
   updateUser,
+  getLikeReducer,
+  getSaveReducer,
+  postLikeReducer,
+  postSaveReducer,
+  postCommentReducer,
+  getCommentReducer,
 });
 
 export default rootReducers;

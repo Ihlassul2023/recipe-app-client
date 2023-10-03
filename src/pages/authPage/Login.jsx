@@ -12,6 +12,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [check, setCheck] = useState(true);
   const { isLoading } = useSelector((state) => state.login);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -42,11 +43,11 @@ const Login = () => {
                 <label htmlFor="password">Password</label>
                 <input type="password" placeholder="Password" value={dataInput.password} onChange={(e) => handleInput(e)} name="password" />
               </div>
-              <div className="check">
-                <input type="checkbox" name="check" id="check" />
+              <div className="check d-flex g-2">
+                <input style={{ marginRight: "10px" }} type="checkbox" onClick={() => setCheck(!check)} name="check" id="check" />
                 <label htmlFor="check">I agree to terms &amp; conditions</label>
               </div>
-              <button>
+              <button disabled={check}>
                 {isLoading ? (
                   <Spinner animation="border" size="sm" variant="light" role="status">
                     <span className="visually-hidden">Loading...</span>

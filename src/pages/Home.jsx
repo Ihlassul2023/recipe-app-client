@@ -30,16 +30,26 @@ const Home = () => {
               </label>
               {token ? (
                 <>
-                  <Link onClick={handleLogout}>Logout</Link>
-                  <Link to={"/addRecipe"}>Add Menu</Link>
+                  <Link id="nav" className="text-decoration-none" onClick={handleLogout}>
+                    Logout
+                  </Link>
+                  <Link id="nav" className="text-decoration-none" to={"/addRecipe"}>
+                    Add Menu
+                  </Link>
                 </>
               ) : (
                 <>
-                  <Link to={"/login"}>Login</Link>
-                  <Link to={"/register"}>Register</Link>
+                  <Link id="nav" className="text-decoration-none" to={"/login"}>
+                    Login
+                  </Link>
+                  <Link id="nav" className="text-decoration-none" to={"/register"}>
+                    Register
+                  </Link>
                 </>
               )}
-              <Link to={"/searchMenu?search&page"}>Search Menu</Link>
+              <Link id="nav" className="text-decoration-none" to={"/searchMenu?search&page"}>
+                Search Menu
+              </Link>
             </div>
             <div className="col-4 menuBurger d-none">
               <label htmlFor="checkBox">

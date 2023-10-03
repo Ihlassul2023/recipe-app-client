@@ -57,7 +57,7 @@ const SearchMenu = () => {
                       Search
                     </button>
                   </div>
-                  <div className="category d-flex justify-content-between">
+                  <div className="category d-flex flex-wrap justify-content-between">
                     <button onClick={() => setSort("DESC")}>New</button>
                     <button>Popular</button>
                     <button>Vegetarian</button>
@@ -82,7 +82,7 @@ const SearchMenu = () => {
                   data?.data.map((menu) => (
                     <div key={menu.id} className="listRecipe row mb-4">
                       <div className="listRecipeImage col-md-4">
-                        <img style={{ objectFit: "cover" }} className="h-100 w-100" loading="lazy" src={menu.photo} alt="gambar" />
+                        <img style={{ height: "300px", width: "350px", objectFit: "cover" }} loading="lazy" src={menu.photo} alt="gambar" />
                       </div>
                       <div className="listRecipeExp col-md-3 d-flex flex-column gap-2">
                         <h3 className="text-dark">{menu.title}</h3>
@@ -92,7 +92,9 @@ const SearchMenu = () => {
                           ))}
                         </ul>
                         <button className="buttonSection2">
-                          <Link to={`/detailRecipe/${menu.id}`}>10 Likes - 12 Comment - 3 Bookmark</Link>
+                          <Link to={`/detailRecipe/${menu.id}`}>
+                            {menu.like_count} Likes - {menu.comment_count} Comment - {menu.saved_count} Bookmark
+                          </Link>
                         </button>
                         <div className="profile d-flex align-items-center gap-2">
                           {menu.profil_pict ? (

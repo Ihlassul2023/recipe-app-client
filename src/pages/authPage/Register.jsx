@@ -12,6 +12,7 @@ const Register = () => {
   const { data, isLoading, isError, errorMessage } = useSelector((state) => state.register);
   const handleClose = () => setShow(false);
   const dispatch = useDispatch();
+  const [check, setCheck] = useState(true);
   const [dataInput, setDataInput] = useState({
     name: "",
     email: "",
@@ -70,10 +71,10 @@ const Register = () => {
                 <input type="password" value={dataInput.password} onChange={(e) => handleInput(e)} placeholder="Password" name="password" required />
               </div>
               <div className="check">
-                <input type="checkbox" name="check" id="check" />
+                <input onClick={() => setCheck(!check)} style={{ marginRight: "10px" }} type="checkbox" name="check" id="check" />
                 <label htmlFor="check">I agree to terms &amp; conditions</label>
               </div>
-              <button className="w-100 text-white bg-warning border-0 p-2 text-decoration-none">
+              <button disabled={check} className="w-100 text-white bg-warning border-0 p-2 text-decoration-none">
                 {isLoading ? (
                   <Spinner animation="border" role="status" size="sm" variant="light">
                     <span className="visually-hidden">Loading...</span>

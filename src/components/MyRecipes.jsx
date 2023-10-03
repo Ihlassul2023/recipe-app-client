@@ -54,13 +54,15 @@ const MyRecipes = ({ myMenu, getMyRecipe }) => {
         myMenu.map((menu) => (
           <div key={menu.id} className="listRecipe row mb-4">
             <div className="listRecipeImage col-md-4">
-              <img className="h-100 w-100" loading="lazy" src={menu.photo} alt="gambar" />
+              <img style={{ height: "300px", width: "350px", objectFit: "cover" }} loading="lazy" src={menu.photo} alt="gambar" />
             </div>
             <div className="listRecipeExp col-md-4 d-flex flex-column gap-4">
               <h3 className="text-dark">{menu.title}</h3>
               <p className="w-50">{menu.ingredients}</p>
               <button className="buttonSection2">
-                <Link to={`/detailRecipe/${menu.id}`}>10 Likes - 12 Comment - 3 Bookmark</Link>
+                <Link to={`/detailRecipe/${menu.id}`}>
+                  {menu.like_count} Likes - {menu.comment_count} Comment - {menu.saved_count} Bookmark
+                </Link>
               </button>
               <div className="profile btnDetailProfile d-flex align-items-center gap-5">
                 <button onClick={() => navigate(`/addRecipe/${menu.id}`)}>Edit Menu</button>

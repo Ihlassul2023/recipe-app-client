@@ -1,20 +1,20 @@
 import React from "react";
 import sectionSearchMenu from "../assets/images/section-searchMenu.png";
 import { Link } from "react-router-dom";
-import { postSave } from "../redux/action/likeSave";
+import { postLike } from "../redux/action/likeSave";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const MyBookmarked = ({ savedRecipe }) => {
+const MyLikedRecipe = ({ likedRecipe }) => {
   const dispatch = useDispatch();
   const saveHandle = (id) => {
-    dispatch(postSave(id));
+    dispatch(postLike(id));
   };
   return (
     <>
-      {savedRecipe != null &&
-        savedRecipe.map((item) => (
+      {likedRecipe != null &&
+        likedRecipe.map((item) => (
           <div key={item.id} className="listRecipe row mb-4">
             <div className="listRecipeImage col-4">
               <img style={{ height: "300px", width: "350px", objectFit: "cover" }} src={item.photo} alt="gambar" />
@@ -30,7 +30,7 @@ const MyBookmarked = ({ savedRecipe }) => {
               <div className="profile btnDetailProfile d-flex flex-column-reverse align-items-start gap-5">
                 <div />
                 <button onClick={() => saveHandle(item.recipe_id)} className="w-75">
-                  Delete From Bookmark
+                  Delete From Liked
                 </button>
               </div>
             </div>
@@ -41,4 +41,4 @@ const MyBookmarked = ({ savedRecipe }) => {
   );
 };
 
-export default MyBookmarked;
+export default MyLikedRecipe;

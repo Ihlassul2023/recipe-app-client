@@ -26,7 +26,8 @@ export const login = (data, navigate) => async (dispatch) => {
     toast.success(result.data.msg);
     setTimeout(() => {
       navigate("/");
-    }, 2000);
+      window.location.reload();
+    }, 1000);
     dispatch({ payload: result.data.user, type: "AUTH_LOGIN_SUCCESS" });
   } catch (err) {
     console.log("error");

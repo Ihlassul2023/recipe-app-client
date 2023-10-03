@@ -24,7 +24,7 @@ const AddRecipe = () => {
     id && getData();
   }, [id]);
   useEffect(() => {
-    !detail_menuReducer.isLoading && setData({ ...data, ...detail_menuReducer.data });
+    !detail_menuReducer.isLoading && setData({ ...data, ...detail_menuReducer.data?.data });
   }, [detail_menuReducer.isLoading]);
   const getData = async () => {
     dispatch(getMenuDetail(id));

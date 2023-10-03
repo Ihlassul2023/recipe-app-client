@@ -3,35 +3,37 @@ import { Navbar, Footer, MyRecipes, MyBookmarked } from "../components";
 import profil from "../assets/images/profil.png";
 import { Link } from "react-router-dom";
 import loading from "../assets/images/loading.png";
-import { instance } from "../utils/serviceApi";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyMenu } from "../redux/action/menu";
+import { getSave, getLike } from "../redux/action/likeSave";
+import MyLikedRecipe from "../components/MyLikedRecipe";
 
 const DetailProfile = () => {
-  const [move, setMove] = useState(false);
+  const [moveRecipe, setMoveRecipe] = useState(true);
+  const [moveBookmark, setMoveBookmark] = useState(false);
+  const [moveLike, setMoveLike] = useState(false);
   const [myMenu, setMyMenu] = useState(null);
+  const [savedRecipe, setSavedRecipe] = useState(null);
+  const [likedRecipe, setLikedRecipe] = useState(null);
   const dispatch = useDispatch();
   const { data, isLoading } = useSelector((state) => state.myMenu_Reducer);
+  const bookmarkRecipe = useSelector((state) => state.getSaveReducer);
+  const likeRecipe = useSelector((state) => state.getLikeReducer);
   useEffect(() => {
     getMyRecipe();
-    document.getElementById(`recipes`).classList.add("text-dark");
   }, []);
   useEffect(() => {
     !isLoading && setMyMenu(data);
-  }, [isLoading]);
-  const handleMove = (boolean) => {
-    setMove(boolean);
-    if (boolean) {
-      document.getElementById(`bookmarked`).classList.add("text-dark");
-      document.getElementById(`recipes`).classList.remove("text-dark");
-    } else {
-      document.getElementById(`bookmarked`).classList.remove("text-dark");
-      document.getElementById(`recipes`).classList.add("text-dark");
-    }
-  };
-  const getMyRecipe = async () => {
+    !bookmarkRecipe.isLoading && setSavedRecipe(bookmarkRecipe.data);
+    !likeRecipe.isLoading && setLikedRecipe(likeRecipe.data);
+  }, [isLoading, bookmarkRecipe.isLoading, likeRecipe.isLoading]);
+
+  const getMyRecipe = () => {
     dispatch(getMyMenu());
+    dispatch(getSave());
+    dispatch(getLike());
   };
+  const options = { day: "2-digit", month: "long", year: "numeric" };
   return (
     <>
       <nav>
@@ -69,26 +71,50 @@ const DetailProfile = () => {
                       </div>
                     </div>
                     <div className="historySectionDetail1 col-3">
-                      <span className="text-dark">21 February 2023</span>
+                      <span className="text-dark">{new Date().toLocaleDateString("id-ID", options)}</span>
                     </div>
                   </div>
                   <div className="row mb-4">
                     <div className="col-md-8 colDetailProfil">
                       <div className="toDetailProfile d-flex justify-content-between gap-4">
                         <h3>
-                          <Link id="recipes" className="text-decoration-none" onClick={(e) => handleMove(false)}>
+                          <Link
+                            id="recipes"
+                            className={moveRecipe ? "text-dark text-decoration-none" : "text-decoration-none"}
+                            onClick={(e) => {
+                              setMoveRecipe(true);
+                              setMoveBookmark(false);
+                              setMoveLike(false);
+                            }}
+                          >
                             Recipes
                           </Link>
                         </h3>
                         <h3>
-                          <Link id="bookmarked" className="text-decoration-none" onClick={(e) => handleMove(true)}>
+                          <Link
+                            id="bookmarked"
+                            className={moveBookmark ? "text-dark text-decoration-none" : "text-decoration-none"}
+                            onClick={(e) => {
+                              setMoveBookmark(true);
+                              setMoveLike(false);
+                              setMoveRecipe(false);
+                            }}
+                          >
                             Bookmarked
                           </Link>
                         </h3>
                         <h3>
-                          <a className="text-decoration-none" href="./detailProfile.html">
+                          <Link
+                            id="liked"
+                            className={moveLike ? "text-dark text-decoration-none" : "text-decoration-none"}
+                            onClick={(e) => {
+                              setMoveBookmark(false);
+                              setMoveLike(true);
+                              setMoveRecipe(false);
+                            }}
+                          >
                             Liked
-                          </a>
+                          </Link>
                         </h3>
                       </div>
                       <div className="lineDetailProfile w-100" />
@@ -99,7 +125,11 @@ const DetailProfile = () => {
             </section>
             <section>
               <article>
-                <div className="container">{move ? <MyBookmarked /> : <MyRecipes myMenu={myMenu} getMyRecipe={getMyRecipe} />}</div>
+                <div className="container">
+                  {moveBookmark && <MyBookmarked savedRecipe={savedRecipe} />}
+                  {moveRecipe && <MyRecipes myMenu={myMenu} getMyRecipe={getMyRecipe} />}
+                  {moveLike && <MyLikedRecipe likedRecipe={likedRecipe} />}
+                </div>
               </article>
             </section>
           </>

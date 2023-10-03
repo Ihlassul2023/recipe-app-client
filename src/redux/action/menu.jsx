@@ -19,7 +19,7 @@ export const getMenuDetail = (id) => async (dispatch) => {
   try {
     dispatch({ type: "DETAIL_MENU_PENDING" });
     const result = await axios.get(`${url}/recipe/${id}`);
-    dispatch({ payload: result.data.data, type: "DETAIL_MENU_SUCCESS" });
+    dispatch({ payload: result.data, type: "DETAIL_MENU_SUCCESS" });
   } catch (err) {
     console.log("error");
     dispatch({ payload: err.response.data.msg, type: "DETAIL_MENU_FAILED" });

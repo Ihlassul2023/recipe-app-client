@@ -42,7 +42,7 @@ nav .navigation {
 nav .navigation a {
   color: var(--navAndFirstSection);
 }
-nav .navigation a:hover {
+nav .navigation Link:hover {
   text-decoration: underline;
 }
 section .img {
