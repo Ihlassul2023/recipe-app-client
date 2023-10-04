@@ -13,10 +13,12 @@ Food Recipes is an application to help you cook delicious and simple meals. We o
 
 ## 🔖Build With
 
-- [Next Js](https://nextjs.org)
+- [React](https://react.dev/)
 - [Axios](https://www.npmjs.com/package/axios)
 - [Bootstrap](https://www.npmjs.com/package/bootstrap)
-- [Sweetalert](https://www.npmjs.com/package/sweetalert)
+- [React-Bootstrap](https://www.npmjs.com/package/reactstrap)
+- [React-toastify](https://www.npmjs.com/package/react-toastify)
+- [Redux](https://redux.js.org/)
 
 ## 💻 How To Install?
 
