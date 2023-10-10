@@ -14,6 +14,7 @@ import postLikeReducer from "./likeSave/postLikeReducer";
 import postSaveReducer from "./likeSave/postSaveReducer";
 import postCommentReducer from "./comment/postCommentReducer";
 import getCommentReducer from "./comment/getCommentReducer";
+import deleteCommentReducer from "./comment/deleteCommentReducer";
 const rootReducers = combineReducers({
   register,
   login,
@@ -30,6 +31,7 @@ const rootReducers = combineReducers({
   postSaveReducer,
   postCommentReducer,
   getCommentReducer,
+  deleteCommentReducer,
 });
 
 export default rootReducers;

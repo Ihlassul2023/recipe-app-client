@@ -4,14 +4,16 @@ import saved from "../assets/images/saved.png";
 import liked from "../assets/images/liked.png";
 import save from "../assets/images/save.png";
 import like from "../assets/images/like.png";
+import deleteIcon from "../assets/images/deleteComment.png";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getMenuDetail } from "../redux/action/menu";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getLike, postLike, getSave, postSave } from "../redux/action/likeSave";
-import { postComment, getComment } from "../redux/action/comment";
+import { postComment, getComment, deleteComment } from "../redux/action/comment";
 import { useState, useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 const DetailRecipe = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
@@ -20,6 +22,7 @@ const DetailRecipe = () => {
   const detailMenu = useSelector((state) => state.detail_menuReducer);
   const dataLike = useSelector((state) => state.getLikeReducer);
   const dataSave = useSelector((state) => state.getSaveReducer);
+  const dataComment = useSelector((state) => state.postCommentReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     getRecipe();
@@ -141,8 +144,8 @@ const DetailRecipe = () => {
                         <div className="profilPict h-100 d-flex align-items-center gap-2">
                           <img
                             style={{
-                              width: "70px",
-                              height: "70px",
+                              width: "50px",
+                              height: "50px",
                               objectFit: "cover",
                             }}
                             className="rounded-circle"
@@ -150,11 +153,21 @@ const DetailRecipe = () => {
                             alt="profil"
                           />
                         </div>
-                        <div className="profileNameLogout d-flex flex-column">
-                          <span>{comment.name}</span>
+                        <div style={{ width: "50px", marginRight: "50px" }} className="profileNameLogout d-flex flex-column">
+                          <span className=" w-100">{comment.name.split(" ")[0]}</span>
                         </div>
                         <div className="line" />
                         <span className="text-dark">{comment.text}</span>
+                        {localStorage.getItem("id_user") == comment.user_id && (
+                          <img
+                            style={{ cursor: "pointer" }}
+                            onClick={() => {
+                              dispatch(deleteComment(comment.id, id));
+                            }}
+                            src={deleteIcon}
+                            alt="delete"
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -169,7 +182,13 @@ const DetailRecipe = () => {
                 <div className="col-8 sectioDetailRecipe4 d-flex flex-column gap-3">
                   <input className="inputComment" placeholder="Your comment here!" type="text" value={customComment} onChange={(e) => setCustomComment(e.target.value)} />
                   <button onClick={handleSubmit} className="btnComment">
-                    Send a comment
+                    {dataComment.isLoading ? (
+                      <Spinner animation="border" size="sm" variant="light" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </Spinner>
+                    ) : (
+                      "Send a comment"
+                    )}
                   </button>
                 </div>
               </div>

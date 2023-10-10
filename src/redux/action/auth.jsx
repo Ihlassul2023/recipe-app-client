@@ -23,6 +23,7 @@ export const login = (data, navigate) => async (dispatch) => {
     localStorage.setItem("name", result.data.user.name);
     localStorage.setItem("photo", result.data.user.photo_user);
     localStorage.setItem("email", result.data.user.email);
+    localStorage.setItem("id_user", result.data.user.id);
     toast.success(result.data.msg);
     setTimeout(() => {
       navigate("/");

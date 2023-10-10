@@ -18,6 +18,20 @@ export const postComment = (data, id) => async (dispatch, getState) => {
     console.log(err);
   }
 };
+export const deleteComment = (id, recipe_id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: "DELETE_COMMENT_PENDING" });
+    const result = await instance.delete(`${url}/comment/${id}?recipe_id=${recipe_id}`);
+    toast.success(result.data.msg);
+    dispatch(getMenuDetail(recipe_id));
+    dispatch({ payload: result.data.msg, type: "DELETE_COMMENT_SUCCESS" });
+  } catch (err) {
+    console.log("error");
+    toast.error(err.response.data.msg);
+    dispatch({ payload: err.response.data.msg, type: "DELETE_COMMENT_FAILED" });
+    console.log(err);
+  }
+};
 export const getComment = (data) => async (dispatch, getState) => {
   try {
     dispatch({ type: "GET_COMMENT_PENDING" });
