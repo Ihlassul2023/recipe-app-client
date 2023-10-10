@@ -11,6 +11,15 @@
 
 Food Recipes is an application to help you cook delicious and simple meals. We offer recipes and cooking advice from anyone to everyone. Food Recipes is a web-based recipe sharing application that allow user to share their recipe. In this app, user could take a look into recipe including it's ingredients
 
+## Demo Account
+
+-login
+
+```
+Email : ihlassul@gmail.com
+Pass  : 123456789
+```
+
 ## 🔖Build With
 
 - [React](https://react.dev/)
