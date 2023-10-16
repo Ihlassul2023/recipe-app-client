@@ -16,7 +16,7 @@ const Verification = () => {
   }, []);
   const verify = async () => {
     try {
-      await axios.get(`http://localhost:5000/auth/verify/${query.get("id")}`);
+      await axios.get(`https://determined-pink-foal.cyclic.app/auth/verify/${query.get("id")}`);
       setShow(true);
     } catch (error) {
       console.log(error);
